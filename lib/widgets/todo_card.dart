@@ -20,7 +20,6 @@ class TodoCard extends StatefulWidget {
 }
 
 class _TodoCardState extends State<TodoCard> {
- 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -60,9 +59,12 @@ class _TodoCardState extends State<TodoCard> {
                 ),
                 // CheckBox Icon to mark the Task as Done
                 trailing: IconButton(
-                  icon: Icon(widget.todoItems[index].completed
-                      ? Icons.check_box
-                      : Icons.check_box_outline_blank),
+                  icon: Icon(
+                    widget.todoItems[index].completed
+                        ? Icons.check_box
+                        : Icons.check_box_outline_blank,
+                    color: const Color.fromRGBO(171, 174, 185, 1),
+                  ),
                   onPressed: () {
                     setState(() {
                       if (widget.todoItems[index].completed) {

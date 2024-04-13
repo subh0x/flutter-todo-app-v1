@@ -15,15 +15,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ToDo App',
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 6, 6, 8),
-        cardColor: const Color.fromARGB(255, 26, 27, 30),
-        primaryColor: const Color.fromRGBO(251, 184, 116, 1),
-        hintColor: const Color.fromRGBO(171, 174, 185, 1),
-        iconTheme: const IconThemeData(
-          color: Color.fromRGBO(171, 174, 185, 1),
-        ),
+        scaffoldBackgroundColor: const Color.fromRGBO(6, 6, 8, 1.0),
+        cardColor: const Color.fromRGBO(26, 27, 30, 1.0),
+        primaryColor: const Color.fromRGBO(251, 184, 116, 1.0),
+        hintColor: const Color.fromRGBO(171, 174, 185, 1.0),
       ),
-      home: ToDoScreen(),
+      home: const ToDoScreen(),
     );
   }
 }
