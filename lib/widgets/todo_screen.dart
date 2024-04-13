@@ -18,16 +18,21 @@ class _ToDoScreenState extends State<ToDoScreen> {
     TodoItem(todoTitle: 'Task-2', todoDesc: 'Description-2'),
   ];
 
-  void addTodoItem() {
-    setState(() {
-      todoItems.insert(
-        0, // Inserting New To-do at First Position LIFO (Last In, First Out)
-        TodoItem(
-          todoTitle: 'New Task',
-          todoDesc: 'New Description',
-        ),
-      );
-    });
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _descController = TextEditingController();
+
+  void addTodoItem(String taskTitle, String taskDesc) {
+    if (taskTitle.isNotEmpty && taskDesc.isNotEmpty) {
+      setState(() {
+        todoItems.insert(
+          0, // Inserting New To-do at First Position LIFO (Last In, First Out)
+          TodoItem(
+            todoTitle: taskTitle,
+            todoDesc: taskDesc,
+          ),
+        );
+      });
+    }
   }
 
   // Changing the Visibility of Container and the Floating Action button
@@ -90,6 +95,7 @@ class _ToDoScreenState extends State<ToDoScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextField(
+                      controller: _titleController,
                       minLines: 1,
                       maxLines: 2,
                       decoration: InputDecoration(
@@ -113,6 +119,7 @@ class _ToDoScreenState extends State<ToDoScreen> {
                     ),
                     const SizedBox(height: 10),
                     TextField(
+                      controller: _descController,
                       minLines: 1,
                       maxLines: 4,
                       decoration: InputDecoration(
@@ -137,6 +144,8 @@ class _ToDoScreenState extends State<ToDoScreen> {
                     const SizedBox(height: 15),
                     TextButton.icon(
                       onPressed: () {
+                        addTodoItem(
+                            _titleController.text, _descController.text);
                         _changeFloatingButtonVisbility();
                         _changeContainerVisiblity();
                       },
