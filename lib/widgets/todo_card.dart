@@ -12,59 +12,68 @@ class TodoItem {
 }
 
 class TodoCard extends StatefulWidget {
-  const TodoCard({super.key});
+  final List<TodoItem> todoItems;
+  const TodoCard({super.key, required this.todoItems});
 
   @override
   State<TodoCard> createState() => _TodoCardState();
 }
 
 class _TodoCardState extends State<TodoCard> {
-  List<TodoItem> todoItems = [
-    TodoItem(todoTitle: 'Task-1', todoDesc: 'Description-1'),
-    TodoItem(todoTitle: 'Task-2', todoDesc: 'Description-2'),
-    TodoItem(todoTitle: 'Task-3', todoDesc: 'Description-3')
-  ];
-
+ 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: todoItems.length,
+      itemCount: widget.todoItems.length,
       itemBuilder: (BuildContext context, int index) {
-        return Card(
-          color: Theme.of(context).cardColor,
-          child: ListTile(
-            title: Text(
-              todoItems[index].todoTitle,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  decoration: todoItems[index].completed ? TextDecoration.lineThrough : null,
-                  decorationThickness: 2.0,
-                  decorationColor: Colors.white
+        // Returning a Constrained Box to make sure the Tasks don't overflow the Card.
+        return ConstrainedBox(
+          constraints: const BoxConstraints(maxHeight: 300),
+          child: Card(
+            color: Theme.of(context).cardColor,
+            child: SizedBox(
+              child: ListTile(
+                title: Text(
+                  widget.todoItems[index].todoTitle,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      decoration: widget.todoItems[index].completed
+                          ? TextDecoration.lineThrough
+                          : null,
+                      decorationThickness: 2.0,
+                      decorationColor: Colors.white),
+                ),
+                subtitle: Text(
+                  widget.todoItems[index].todoDesc,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: Theme.of(context).hintColor,
+                    decoration: widget.todoItems[index].completed
+                        ? TextDecoration.lineThrough
+                        : null,
+                    decorationThickness: 2.0,
+                    decorationColor: Theme.of(context).hintColor,
                   ),
-            ),
-            subtitle: Text(
-              todoItems[index].todoDesc,
-              style: TextStyle(
-                color: Theme.of(context).hintColor,
-                decoration: todoItems[index].completed ? TextDecoration.lineThrough : null,
-                decorationThickness: 2.0,
-                decorationColor: Theme.of(context).hintColor,
+                ),
+                // CheckBox Icon to mark the Task as Done
+                trailing: IconButton(
+                  icon: Icon(widget.todoItems[index].completed
+                      ? Icons.check_box
+                      : Icons.check_box_outline_blank),
+                  onPressed: () {
+                    setState(() {
+                      if (widget.todoItems[index].completed) {
+                        widget.todoItems[index].completed = false;
+                      } else {
+                        widget.todoItems[index].completed = true;
+                      }
+                    });
+                  },
+                ),
               ),
-            ),
-            trailing: IconButton(
-              icon:  Icon(todoItems[index].completed ? Icons.check_box : Icons.check_box_outline_blank),
-              onPressed: () {
-                setState(() {
-                  if(todoItems[index].completed){
-                    todoItems[index].completed = false;
-                  }
-                  else {
-                    todoItems[index].completed = true;
-                  }
-                });
-              },
             ),
           ),
         );
