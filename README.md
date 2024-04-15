@@ -21,10 +21,10 @@ To run this app on your local machine, follow these steps:
 
 ## Screenshots
 
-![ScreenShot-1](screenshots/Screenshot-1.png){ width=450 height=400 }
-![ScreenShot-2](screenshots/Screenshot-2.png){ width=450 height=400 }
-![ScreenShot-3](screenshots/Screenshot-3.png){ width=430 height=900 }
-![ScreenShot-4](screenshots/Screenshot-4.png){ width=430 height=900 }
+![ScreenShot-1](screenshots/Screenshot-1.png)
+![ScreenShot-2](screenshots/Screenshot-2.png)
+![ScreenShot-3](screenshots/Screenshot-3.png)
+![ScreenShot-4](screenshots/Screenshot-4.png)
 
 ## Dependencies
 
