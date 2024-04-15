@@ -32,6 +32,7 @@ class _TodoCardState extends State<TodoCard> {
             color: Theme.of(context).cardColor,
             child: SizedBox(
               child: ListTile(
+                isThreeLine: true,
                 title: Text(
                   widget.todoItems[index].todoTitle,
                   style: TextStyle(

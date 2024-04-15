@@ -115,6 +115,11 @@ class _ToDoScreenState extends State<ToDoScreen> {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(10))),
                         labelText: 'Title',
+                        labelStyle: const TextStyle(
+                          fontFamily: 'San Francisco',
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.01
+                        ),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -139,18 +144,28 @@ class _ToDoScreenState extends State<ToDoScreen> {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(10))),
                         labelText: 'Description',
+                        labelStyle: const TextStyle(
+                          fontFamily: 'San Francisco',
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.01
+                        )
                       ),
                     ),
                     const SizedBox(height: 15),
                     TextButton.icon(
                       onPressed: () {
-                        addTodoItem(
-                            _titleController.text, _descController.text);
+                        addTodoItem(_titleController.text, _descController.text);
+                        // Clear the Text Controllers once done
+                        _titleController.clear();
+                        _descController.clear();
                         _changeFloatingButtonVisbility();
                         _changeContainerVisiblity();
                       },
                       icon: const Icon(Icons.add_box_rounded),
-                      label: const Text("Add Todo"),
+                      label: const Text("Add Todo",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold
+                      ),),
                       style: ButtonStyle(
                         foregroundColor: MaterialStatePropertyAll(
                             Theme.of(context).primaryColor),
