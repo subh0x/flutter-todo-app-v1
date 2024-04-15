@@ -1,16 +1,36 @@
-# todo_app
+# Todo List App
 
-A new Flutter project.
+This is a simple todo app built using Flutter. It allows users to create new todo items and mark them as complete.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- App displays all the todos in List Tile
+- Create new todo items with a title and description.
+- Mark todo items as completed (Checkbox and Texxtthrough decoration).
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To run this app on your local machine, follow these steps:
+
+1. Ensure you have Flutter installed. If not, follow the [installation instructions](https://flutter.dev/docs/get-started/install) on the Flutter website.
+2. Clone this repository to your local machine.
+3. Open the project in your preferred IDE or editor.
+4. Run `flutter pub get` to install the dependencies.
+5. Run the app using `flutter run`.
+
+## Screenshots
+
+![ScreenShot-1](screenshots/Screenshot-1.png){ width=450 height=400 }
+![ScreenShot-2](screenshots/Screenshot-2.png){ width=450 height=400 }
+![ScreenShot-3](screenshots/Screenshot-3.png){ width=430 height=900 }
+![ScreenShot-4](screenshots/Screenshot-4.png){ width=430 height=900 }
+
+## Dependencies
+
+- `flutter/material.dart`: Flutter's Material Design widgets.
+- [Add any other dependencies used in your project]
+
+## Contributing
+
+Contributions are welcome! If you find any bugs or have suggestions for improvements, feel free to open an issue or submit a pull request.
